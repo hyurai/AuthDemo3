@@ -9,6 +9,71 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="aKv-yQ-NJF">
+            <objects>
+                <viewController storyboardIdentifier="welcome" id="PJo-DT-sXY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4fB-ad-a92">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-Yh-9rW">
+                                <rect key="frame" x="77.5" y="120" width="259.5" height="60"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="さんようこそ！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q83-3o-TNL">
+                                <rect key="frame" x="146" y="300" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test@icloud.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGl-9S-2Sg">
+                                <rect key="frame" x="143" y="381" width="128" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作成日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX1-ey-R4y">
+                                <rect key="frame" x="181" y="462" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGa-AM-c1G">
+                                <rect key="frame" x="107" y="543" width="200" height="40"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Ga6-aX-sPI"/>
+                                    <constraint firstAttribute="width" constant="200" id="eaU-MP-Wgu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="logOut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zg4-wP-Lmz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q83-3o-TNL" firstAttribute="centerX" secondItem="4fB-ad-a92" secondAttribute="centerX" id="7DZ-kB-kvn"/>
+                            <constraint firstItem="GGl-9S-2Sg" firstAttribute="centerX" secondItem="4fB-ad-a92" secondAttribute="centerX" id="Occ-in-6bV"/>
+                            <constraint firstItem="IGa-AM-c1G" firstAttribute="centerX" secondItem="4fB-ad-a92" secondAttribute="centerX" id="XJi-lg-LpB"/>
+                            <constraint firstItem="GGl-9S-2Sg" firstAttribute="top" secondItem="Q83-3o-TNL" secondAttribute="bottom" constant="60" id="XUb-71-0LX"/>
+                            <constraint firstItem="BX1-ey-R4y" firstAttribute="top" secondItem="GGl-9S-2Sg" secondAttribute="bottom" constant="60" id="Z19-bO-God"/>
+                            <constraint firstItem="IGa-AM-c1G" firstAttribute="top" secondItem="BX1-ey-R4y" secondAttribute="bottom" constant="60" id="ZKR-g8-XS0"/>
+                            <constraint firstItem="J0A-Yh-9rW" firstAttribute="top" secondItem="Zg4-wP-Lmz" secondAttribute="top" constant="120" id="aWZ-tk-EdY"/>
+                            <constraint firstItem="J0A-Yh-9rW" firstAttribute="centerX" secondItem="4fB-ad-a92" secondAttribute="centerX" id="gFy-rF-gHz"/>
+                            <constraint firstItem="Q83-3o-TNL" firstAttribute="top" secondItem="J0A-Yh-9rW" secondAttribute="bottom" constant="120" id="rWj-PM-SN5"/>
+                            <constraint firstItem="BX1-ey-R4y" firstAttribute="centerX" secondItem="4fB-ad-a92" secondAttribute="centerX" id="v3b-YZ-g47"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wbQ-Wq-zpV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="-853"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AuthDemo3" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,6 +199,7 @@
                         <outlet property="onResisterButton" destination="4tK-W1-sBO" id="kl1-AD-QWv"/>
                         <outlet property="passwordTextField" destination="Hne-J8-okC" id="cnf-9f-gwe"/>
                         <outlet property="usernameTextField" destination="sMn-nb-W6e" id="HCE-Xv-Nwk"/>
+                        <segue destination="PJo-DT-sXY" kind="presentation" identifier="welcome" id="Xff-y1-jQL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

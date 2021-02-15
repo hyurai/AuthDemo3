@@ -8,12 +8,25 @@
 import UIKit
 import Firebase
 
+struct User {
+    let name:String
+    let createdAt:Timestamp
+    let email:String
+    
+    init(dic:[String:Any]) {
+        self.name = dic["name"] as! String
+        self.createdAt = dic["createdAt"] as! Timestamp
+        self.email = dic["email"] as! String
+    }
+}
 class ViewController: UIViewController{
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var onResisterButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,7 +49,7 @@ class ViewController: UIViewController{
     func createAccount(){
         guard let email = emailTextField.text else {return}
         guard  let password = passwordTextField.text else {return}
-        guard let username = usernameTextField.text else { return }
+       
         
         Auth.auth().createUser(withEmail: email, password: password){
             (res,err) in
@@ -45,18 +58,36 @@ class ViewController: UIViewController{
                 return
             }
             print("情報の登録に成功しました")
-            guard let uid = Auth.auth().currentUser?.uid else {return}
-            let docData = ["email":email,"name":username,"createdAt":Timestamp()] as [String : Any]
-            Firestore.firestore().collection("users").document(uid).setData(docData){
-                (err) in
+            self.addUserInfoToFirebase(email: email)
+            self.performSegue(withIdentifier: "welcome", sender: nil)
+        }
+    }
+    private func addUserInfoToFirebase(email:String){
+        guard let username = usernameTextField.text else { return }
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let docData = ["email":email,"name":username,"createdAt":Timestamp()] as [String : Any]
+        let userRef = Firestore.firestore().collection("users").document(uid)
+        userRef.setData(docData){
+            (err) in
+            if let err = err{
+                print("Firestoreへの保存に失敗しました\(err)")
+                return
+            }
+            print("Firestoreへの保存に成功しました")
+            userRef.getDocument{
+                (snapshot,err) in
                 if let err = err{
-                    print("Firestoreへの保存に失敗しました\(err)")
+                    print("ユーザー情報の取得に失敗しました\(err)")
                     return
                 }
-                print("Firestoreへの保存に成功しました")
+                guard let data = snapshot?.data() else {return}
+                
+                let user = User.init(dic: data)
+                print("ユーザー情報の取得に成功しました\(user.name)")
             }
         }
     }
+    
 }
 extension ViewController:UITextFieldDelegate{
     
@@ -75,5 +106,6 @@ extension ViewController:UITextFieldDelegate{
         print("textField:",textField.text)
     }
 }
+
 
 
