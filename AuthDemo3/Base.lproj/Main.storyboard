@@ -91,6 +91,9 @@
                                 <state key="normal" title="Resister">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onResisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5zf-3z-P7g"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiP-EX-MA3">
                                 <rect key="frame" x="80" y="689" width="254" height="30"/>
