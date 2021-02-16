@@ -9,10 +9,26 @@ import UIKit
 
 class homeViewController: UIViewController {
 
+    
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    var outPutName :String?
+    var outPutEmail :String?
+    var outPutDate :MTLTimestamp?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        logOutButton.layer.cornerRadius = 10
+        nameLabel.text = outPutName  
+        emailLabel.text = outPutEmail
+        dateLabel.text = outPutEmail
     }
     
 

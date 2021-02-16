@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="aKv-yQ-NJF">
             <objects>
-                <viewController storyboardIdentifier="welcome" id="PJo-DT-sXY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcome" id="PJo-DT-sXY" customClass="homeViewController" customModule="AuthDemo3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4fB-ad-a92">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +68,12 @@
                             <constraint firstItem="BX1-ey-R4y" firstAttribute="centerX" secondItem="4fB-ad-a92" secondAttribute="centerX" id="v3b-YZ-g47"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="BX1-ey-R4y" id="qwI-Mv-qA8"/>
+                        <outlet property="emailLabel" destination="GGl-9S-2Sg" id="ODW-P2-aLP"/>
+                        <outlet property="logOutButton" destination="IGa-AM-c1G" id="8l6-GD-T6N"/>
+                        <outlet property="nameLabel" destination="Q83-3o-TNL" id="9Ww-p2-kkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbQ-Wq-zpV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,7 +20,7 @@ struct User {
     }
 }
 class ViewController: UIViewController{
-
+    var delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -60,9 +60,10 @@ class ViewController: UIViewController{
             print("情報の登録に成功しました")
             self.addUserInfoToFirebase(email: email)
             self.performSegue(withIdentifier: "welcome", sender: nil)
+           
         }
     }
-    private func addUserInfoToFirebase(email:String){
+        func addUserInfoToFirebase(email:String){
         guard let username = usernameTextField.text else { return }
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let docData = ["email":email,"name":username,"createdAt":Timestamp()] as [String : Any]
@@ -84,10 +85,19 @@ class ViewController: UIViewController{
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得に成功しました\(user.name)")
+                let anotherStoryboard:UIStoryboard = UIStoryboard(name: "homeViewController", bundle: nil)
+                  // 2. 遷移先のViewControllerを取得
+                  // 3. １で用意した遷移先の変数に値を渡す
+                anotherStoryboard:UIStoryboard.outPutName = user.name
+                anotherStoryboard:UIStoryboard.outPutEmail = user.email
+                
+                
+               
+                
             }
         }
     }
-    
+   
 }
 extension ViewController:UITextFieldDelegate{
     
@@ -106,6 +116,5 @@ extension ViewController:UITextFieldDelegate{
         print("textField:",textField.text)
     }
 }
-
 
 
