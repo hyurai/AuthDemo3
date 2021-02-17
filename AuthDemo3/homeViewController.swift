@@ -8,6 +8,7 @@
 import UIKit
 
 class homeViewController: UIViewController {
+    var attributedText: NSAttributedString!
 
     
     
@@ -17,9 +18,8 @@ class homeViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
     
-    var outPutName :String?
-    var outPutEmail :String?
-    var outPutDate :MTLTimestamp?
+    var outPutName = String()
+    var outPutEmail = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class homeViewController: UIViewController {
         logOutButton.layer.cornerRadius = 10
         nameLabel.text = outPutName  
         emailLabel.text = outPutEmail
-        dateLabel.text = outPutEmail
     }
     
 
@@ -43,3 +42,4 @@ class homeViewController: UIViewController {
     */
 
 }
+

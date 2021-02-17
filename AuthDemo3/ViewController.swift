@@ -59,15 +59,18 @@ class ViewController: UIViewController{
             }
             print("情報の登録に成功しました")
             self.addUserInfoToFirebase(email: email)
-            self.performSegue(withIdentifier: "welcome", sender: nil)
+            
+            
            
         }
     }
-        func addUserInfoToFirebase(email:String){
-        guard let username = usernameTextField.text else { return }
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        let docData = ["email":email,"name":username,"createdAt":Timestamp()] as [String : Any]
-        let userRef = Firestore.firestore().collection("users").document(uid)
+    func addUserInfoToFirebase(email:String){
+    guard let username = usernameTextField.text else { return }
+    guard let uid = Auth.auth().currentUser?.uid else {return}
+    guard let email = emailTextField.text else {return}
+        
+    let docData = ["email":email,"name":username,"createdAt":Timestamp()] as [String : Any]
+    let userRef = Firestore.firestore().collection("users").document(uid)
         userRef.setData(docData){
             (err) in
             if let err = err{
@@ -75,7 +78,7 @@ class ViewController: UIViewController{
                 return
             }
             print("Firestoreへの保存に成功しました")
-            userRef.getDocument{
+            userRef.getDocument{ [self]
                 (snapshot,err) in
                 if let err = err{
                     print("ユーザー情報の取得に失敗しました\(err)")
@@ -85,14 +88,15 @@ class ViewController: UIViewController{
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得に成功しました\(user.name)")
-                let anotherStoryboard:UIStoryboard = UIStoryboard(name: "homeViewController", bundle: nil)
-                  // 2. 遷移先のViewControllerを取得
-                  // 3. １で用意した遷移先の変数に値を渡す
-                anotherStoryboard:UIStoryboard.outPutName = user.name
-                anotherStoryboard:UIStoryboard.outPutEmail = user.email
                 
-                
-               
+                func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                        if let vc = segue.destination as? homeViewController {
+                            // 遷移先のクラスのプロパティに値を代入する
+                            vc.outPutName =  username
+                            vc.outPutEmail = email
+                        }
+                }
+                self.performSegue(withIdentifier: "welcome", sender: nil)
                 
             }
         }
@@ -114,7 +118,7 @@ extension ViewController:UITextFieldDelegate{
             onResisterButton.backgroundColor = UIColor.rgb(red: 255, green: 141, blue: 0)
         }
         print("textField:",textField.text)
+        
     }
 }
-
 
