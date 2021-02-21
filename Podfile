@@ -7,6 +7,7 @@ target 'AuthDemo3' do
 
   # Pods for AuthDemo3
   	pod 'Firebase/Auth'
-        pod 'Firebase/Firestore'
+    pod 'Firebase/Firestore'
+    pod 'PKHUD','~>5.0'
 
 end
